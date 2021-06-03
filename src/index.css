@@ -1,0 +1,685 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
+@import url("https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Padauk:wght@700&family=Teko:wght@500&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  width: 100vw;
+  height: 120px;
+  border-radius: 5px;
+  background: #00154d;
+  display: flex;
+  z-index: 10;
+}
+
+.profile-opts {
+  display: flex;
+  margin-left: 350px;
+  margin-top: 20px;
+}
+
+.btn {
+  width: 180px;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  background: transparent;
+  margin: 20px;
+  color: #008d8d;
+  font-size: 22px;
+  cursor: pointer;
+  font-family: "Dela Gothic One";
+}
+
+.selected {
+  border-bottom: 4px solid white;
+  border-right: 2px solid white;
+}
+
+.btn-upload {
+  position: absolute;
+  width: 80px;
+  height: 20px;
+  border: none;
+  background: transparent;
+  color: #008d8d;
+  font-size: 40px;
+  cursor: pointer;
+  margin-top: 40px;
+}
+
+body {
+  background: whitesmoke;
+}
+
+body::-webkit-scrollbar {
+  width: 12px;
+}
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px ivory;
+  border-radius: 5px;
+}
+body::-webkit-scrollbar-thumb {
+  background: #3c415c;
+  border-radius: 5px;
+}
+
+.feed {
+  display: grid;
+  margin: 1rem auto;
+  justify-content: center;
+  align-items: center;
+  width: 98vw;
+  height: 100vh;
+  padding: 20px;
+}
+
+#fitness-gif {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  bottom: 0;
+  left: 0;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+}
+
+.dashboard-post.inactive {
+  display: block;
+}
+
+.post-card {
+  background: #3c415c;
+  background: #00154d;
+  border-radius: 5px;
+  margin-top: 20px;
+  padding: 20px;
+  margin-left: 20px;
+  width: 700px;
+  height: 250px;
+  color: white;
+  box-shadow: 10px 10px 50px grey;
+}
+
+.post-card-activity {
+  background: #3c415c;
+  background: #00154d;
+  border-radius: 5px;
+  margin-top: 20px;
+  padding: 20px;
+  margin-left: 20px;
+  width: 500px;
+  height: 450px;
+  color: white;
+  box-shadow: 10px 10px 50px grey;
+}
+
+.author {
+  padding: 5px;
+  display: flex;
+  font-size: 20px;
+}
+
+.avi {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  margin-bottom: 15px;
+  margin-top: 0;
+}
+
+iframe {
+  height: 250px;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+}
+
+.content h4 {
+  margin: 10px;
+  margin-top: 20px;
+  font-size: 22px;
+  color: black;
+}
+
+.content h3 {
+  margin: 10px;
+  margin-top: 20px;
+  font-size: 22px;
+  color: white;
+}
+
+.title h1 {
+  font-size: 50px;
+  font-family: "Dela Gothic One";
+  color: #008d8d;
+  position: absolute;
+  left: 20%;
+  top: 23%;
+}
+
+.descript {
+  position: absolute;
+  bottom: 0;
+  font-size: 18px;
+}
+
+.goal {
+  position: absolute;
+  bottom: 0;
+  font-size: 18px;
+}
+
+.uploads {
+  position: absolute;
+  top: 30%;
+  left: 25%;
+  width: 900px;
+  height: 500px;
+  background: linear-gradient(#00154d, whitesmoke);
+  border-radius: 10px;
+  padding: 15px;
+  transform: scale(0);
+}
+
+.uploads.active {
+  transform: scale(1);
+}
+
+.uploads .cancel {
+  background-color: transparent;
+  border: none;
+  font-weight: bold;
+  font-size: 22px;
+  color: white;
+  position: absolute;
+  margin-left: 850px;
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  margin: 15px;
+}
+
+.routines-post {
+  display: none;
+}
+
+.myroutines-post {
+  display: none;
+}
+
+.activities-post {
+  display: none;
+}
+
+.uploads button {
+  background: #008d8d;
+  color: white;
+}
+
+.uploads .btn-sub {
+  width: 180px;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  background: transparent;
+  margin: 20px;
+  color: #00154d;
+  font-size: 22px;
+  cursor: pointer;
+  font-family: "Dela Gothic One";
+  font-weight: bold;
+  display: block;
+  margin: 1rem auto;
+}
+
+.new-routine .radio-btn {
+  padding: 20px;
+  margin: 50px;
+  font-weight: bold;
+  font-size: 25px;
+  color: white;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 500px;
+}
+
+.new-routine {
+  display: none;
+}
+
+.new-routine.active {
+  display: block;
+}
+
+.new-routine input[type="text"] {
+  position: relative;
+  top: 50%;
+  left: 1%;
+}
+
+.new-activity {
+  display: none;
+}
+
+.new-activity.active {
+  display: block;
+}
+
+.btn2 {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  background: transparent;
+  border: none;
+  width: 220px;
+  height: 50px;
+  border-radius: 10px;
+  color: blue;
+  cursor: pointer;
+  margin: 10px;
+  font-family: "Teko";
+}
+
+.btn2:hover {
+  transform: scale(1.05);
+}
+
+.options {
+  width: 800px;
+  position: absolute;
+  top: 30%;
+  left: 5%;
+  margin: 10px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  padding: 20px;
+  height: 250px;
+  border-radius: 10px;
+  transform: scale(1);
+}
+
+.options.active {
+  transform: scale(0);
+}
+
+.upload-form h1 {
+  text-align: center;
+  font-size: 45px;
+  font-family: "Dela Gothic One";
+  color: white;
+  margin-bottom: 15px;
+}
+
+.upload-form h5 {
+  display: block;
+  margin: 1rem auto;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  color: whitesmoke;
+  text-decoration: underline;
+  font-size: 24px;
+  font-family: "Teko";
+}
+
+form input[type="text"] {
+  position: relative;
+  top: 50%;
+  left: 10%;
+  margin-bottom: 25px;
+  color: #f0ffff;
+  font-size: 22px;
+  font-family: "Teko";
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  margin: 25px;
+  border: none;
+  border-bottom: 4px solid whitesmoke;
+  border-right: 2px solid whitesmoke;
+  background: transparent;
+  width: 285px;
+  height: 35px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+progress[value] {
+  appearance: none;
+
+  border: none;
+
+  width: 100%;
+  height: 20px;
+
+  background-color: whiteSmoke;
+  border-radius: 3px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5) inset;
+
+  color: royalblue;
+
+  position: relative;
+  margin: 0 0 1.5em;
+}
+
+progress[value]::-webkit-progress-bar {
+  background-color: whiteSmoke;
+  border-radius: 3px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5) inset;
+}
+
+progress[value]::-webkit-progress-value {
+  position: relative;
+
+  background-size: 35px 20px, 100% 100%, 100% 100%;
+  border-radius: 3px;
+  animation: animate-stripes 5s linear infinite;
+}
+
+@keyframes animate-stripes {
+  100% {
+    background-position: -100px 0;
+  }
+}
+
+progress[value]::-webkit-progress-value:after {
+  content: "";
+  position: absolute;
+
+  width: 5px;
+  height: 5px;
+  top: 7px;
+  right: 7px;
+
+  background-color: white;
+  border-radius: 100%;
+}
+
+progress[value]::-moz-progress-bar {
+  background-image: -moz-linear-gradient(
+      135deg,
+      transparent,
+      transparent 33%,
+      rgba(0, 0, 0, 0.1) 33%,
+      rgba(0, 0, 0, 0.1) 66%,
+      transparent 66%
+    ),
+    -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.2)),
+    -moz-linear-gradient(left, #09c, #f44);
+
+  background-size: 35px 20px, 100% 100%, 100% 100%;
+  border-radius: 3px;
+}
+
+.progress-bar {
+  background-color: whiteSmoke;
+  border-radius: 3px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5) inset;
+  width: 100%;
+  height: 20px;
+}
+
+.progress-bar span {
+  background-color: royalblue;
+  border-radius: 3px;
+  width: 40%;
+  display: block;
+  text-indent: -9999px;
+}
+
+p[data-value] {
+  position: relative;
+}
+
+p[data-value]:after {
+  content: attr(data-value) "%";
+  position: absolute;
+  right: 0;
+}
+
+p {
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+
+.content p {
+  width: 40%;
+}
+
+.success-bar {
+  position: absolute;
+  left: 40%;
+  top: 40%;
+}
+
+.inner-circle {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  border: 15px solid lightgrey;
+  border-radius: 50%;
+  border-top: 15px solid red;
+  border-right: 15px solid red;
+  border-bottom: 15px solid red;
+}
+
+.inner-circle p {
+  position: absolute;
+  top: 40%;
+  left: 35%;
+  text-align: center;
+  font-size: 60px;
+  font-weight: bold;
+  color: #008d8d;
+}
+
+.inner-circle-act {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border: 15px solid lightgrey;
+  border-radius: 50%;
+  /*   border-top: 15px solid red;
+  border-right: 15px solid red;
+  border-bottom: 15px solid red; */
+}
+
+.inner-circle-act p {
+  position: absolute;
+  top: 30%;
+  left: 5%;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #008d8d;
+}
+
+.inner-circle-act2 {
+  float: right;
+  width: 150px;
+  height: 150px;
+  border: 15px solid lightgrey;
+  border-radius: 50%;
+  /*   border-top: 15px solid red;
+  border-right: 15px solid red;
+  border-bottom: 15px solid red; */
+}
+
+.inner-circle-act2 p {
+  float: right;
+  margin-top: 30px;
+  padding: 10px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #008d8d;
+}
+
+.activity {
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.login-register {
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  width: 800px;
+  height: 450px;
+  background: linear-gradient(#00154d, whitesmoke);
+  color: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 10px 10px 50px blue;
+  transform: scale(0);
+}
+
+.login-register.active {
+  transform: scale(1);
+}
+
+.login-register h1 {
+  text-align: center;
+  font-size: 45px;
+  font-family: "Dela Gothic One";
+  color: blue;
+}
+
+.login-register h5 {
+  display: block;
+  margin: 1rem auto;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  color: whitesmoke;
+  text-decoration: underline;
+  font-size: 24px;
+  background: -webkit-linear-gradient(darkblue, #7cb9e8);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Teko";
+}
+
+.login-form {
+  display: none;
+}
+
+.login-form.active {
+  display: block;
+}
+
+.register-form {
+  display: none;
+}
+
+.register-form.active {
+  display: block;
+}
+
+.options-reg {
+  width: 800px;
+  position: absolute;
+  top: 30%;
+  left: 28%;
+  margin: 10px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(#00154d, whitesmoke);
+  font-weight: bold;
+  box-shadow: 10px 10px 50px blue;
+  padding: 20px;
+  height: 250px;
+  border-radius: 10px;
+  transform: scale(0);
+}
+
+.options-reg.active {
+  transform: scale(1);
+}
+
+.login-register input {
+  border-radius: 5px;
+  width: 285px;
+  height: 35px;
+  background: transparent;
+  font-weight: bold;
+  font-size: 22px;
+  border: none;
+  border-bottom: 3px solid darkblue;
+  border-right: 2px solid darkblue;
+  padding: 5px;
+  margin: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-register form input {
+  position: relative;
+  top: 50%;
+  left: 5%;
+  margin-bottom: 25px;
+  color: #f0ffff;
+  font-family: "Teko";
+}
+
+.login-register .btn {
+  display: block;
+  margin: 1rem auto;
+  background: transparent;
+  border: 3px solid blue;
+  width: 140px;
+  height: 45px;
+  border-radius: 10px;
+  color: blue;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: "Teko";
+  cursor: pointer;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.login-register .cancel {
+  background-color: transparent;
+  border: none;
+  font-weight: bold;
+  font-size: 22px;
+  color: white;
+  position: absolute;
+  margin-left: 720px;
+  margin-top: 2px;
+  cursor: pointer;
+}
