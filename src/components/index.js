@@ -1,4 +1,4 @@
-export { default as Menu } from "./Menu";
+export { default as Home } from "./Home";
 export { default as UploadsPage } from "./UploadsPage";
 export { default as LoginReg } from "./LoginReg";
 export { default as Routines } from "./Routines";

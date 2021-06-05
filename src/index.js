@@ -1,9 +1,11 @@
 import React from "react";
 import ReactDom from "react-dom";
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
+import { useState } from "react";
+import { ThemeProvider } from "styled-components";
 import "./index.css";
 
-import Menu from "./components/Menu";
+import Home from "./components/Home";
 import UploadsPage from "./components/UploadsPage";
 import LoginReg from "./components/LoginReg";
 import Routines from "./components/Routines";
@@ -13,7 +15,7 @@ import Activities from "./components/Activities";
 const App = () => {
   return (
     <div id="app">
-      <header component={Menu}>
+      <header>
         <div class="upload">
           <button class="btn-upload" component={UploadsPage}>
             <i class="fa fa-file-text" aria-hidden="true"></i>
@@ -39,48 +41,42 @@ const App = () => {
             Activities
           </button>
         </Link>
-        <Link to="/account">
-          <button class="btn" id="account">
-            Account
-          </button>
-        </Link>
+        <div class="mode">
+          <label for="Description">Dark Mode</label>
+          <div class="theme-switch">
+            <button
+              onClick="darkMode();"
+              class="switch"
+              id="active"
+              value="Off"
+            ></button>
+          </div>
+        </div>
       </header>
 
       <body>
         <div class="feed">
-          <Route exact path="/home">
-            <div class="home-post">
-              <div class="title">
-                <h1> Our Combinded Users Success Percentage </h1>
-              </div>
-              <img
-                id="fitness-gif"
-                src="https://cdn.dribbble.com/users/159027/screenshots/3866020/run-dribbble_3.gif"
-              />
+          <Switch>
+            <Route exact path="/" component={LoginReg}>
+              <LoginReg />
+            </Route>
 
-              <div class="success-bar">
-                <div class="inner-circle">
-                  <p>75%</p>
-                </div>
-              </div>
-            </div>
-          </Route>
+            <Route exact path="/home">
+              <Home />
+            </Route>
 
-          <Route path="/routines">
-            <Routines />
-          </Route>
+            <Route path="/routines">
+              <Routines />
+            </Route>
 
-          <Route path="/myroutines">
-            <MyRoutines />
-          </Route>
+            <Route path="/myroutines">
+              <MyRoutines />
+            </Route>
 
-          <Route path="/activities">
-            <Activities />
-          </Route>
-
-          <Route path="/account">
-            <LoginReg />
-          </Route>
+            <Route path="/activities">
+              <Activities />
+            </Route>
+          </Switch>
         </div>
       </body>
     </div>

@@ -1,42 +1,49 @@
 import React from "react";
+import axios from "axios";
 
-import "./Activities.css";
+import { useState, useEffect } from "react";
+
+import "./All.css";
 
 const Activities = () => {
+  const [activities, setActivities] = useState();
+  useEffect(async () => {
+    axios
+      .get(`${process.env.REACT_APP_FITNESS_TRACKER_API_URL}/activities`)
+      .then(({ data }) => {
+        if (data.length) {
+          setActivities(data);
+          console.log(data);
+        }
+      });
+  }, []);
   return (
     <>
-      <div class="activities-post">
-        <img
-          id="fitness-gif"
-          src="https://cdn.dribbble.com/users/1304577/screenshots/4227985/gym-guy-8x6.gif"
-        />
-
-        <div class="post-card-activity">
-          <div class="author">
-            <img
-              class="avi"
-              src="http://cdn.onlinewebfonts.com/svg/img_258083.png"
-            />
-            <h4>{name}</h4>
-          </div>
-
-          <div class="content">
-            <div class="activity">Activity Name</div>
-            <div class="success-bar-act">
-              <div class="inner-circle-act">
-                <p>Count: 350 Reps</p>
+      <img
+        id="fitness-gif"
+        src="https://cdn.dribbble.com/users/1304577/screenshots/4227985/gym-guy-8x6.gif"
+      />
+      {activities.map((activity) => {
+        return (
+          <div class="card activities">
+            <div class="activities-List">
+              <h1> {activity.name} </h1>
+              <small>{activity.description} </small>
+            </div>
+            <div class="activity-info">
+              <div class="progressbar-act">
+                <div class="circle-act">
+                  <div class="bar-act"></div>
+                  <div class="box-act">
+                    <span>75% Results</span>
+                  </div>
+                </div>
               </div>
             </div>
-
-            <div class="success-bar-act2">
-              <div class="inner-circle-act2">
-                <p>Duration: 30 Minutes</p>
-              </div>
-            </div>
-            <footer class="descript">Description</footer>
           </div>
-        </div>
-      </div>
+        );
+      })}
+      ;
     </>
   );
 };

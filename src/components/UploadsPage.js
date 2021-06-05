@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./UploadsPage.css";
+import "./All.css";
 
 const UploadsPage = () => {
   return (

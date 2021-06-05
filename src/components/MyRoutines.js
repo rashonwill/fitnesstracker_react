@@ -1,34 +1,52 @@
 import React from "react";
 
-import "./MyRoutines.css";
+import "./All.css";
 
 const MyRoutines = () => {
   return (
     <>
-      <div class="myroutines-post">
-        <img
-          id="fitness-gif"
-          src="https://i.pinimg.com/originals/6f/8e/de/6f8ede4dab23b0518f0efc61e5810d71.gif"
-        />
+      <img
+        id="fitness-gif"
+        src="https://i.pinimg.com/originals/6f/8e/de/6f8ede4dab23b0518f0efc61e5810d71.gif"
+      />
 
-        <div class="post-card">
-          <div class="author">
-            <img
-              class="avi"
-              src="http://cdn.onlinewebfonts.com/svg/img_258083.png"
-            />
-            <h4>name</h4>
-          </div>
-          <div class="content">
-            <p style={{ width: "40%" }} data-value="40">
-              Triceps
-            </p>
-            <progress max="100" value="40" class="html5">
-              <div class="progress-bar">
-                <span style={{ width: "40%" }}>40%</span>
+      <div class="card routines">
+        <div class="author">
+          <h1> Creator Name </h1>
+          <h3> Routine Name </h3>
+          <small> Goal </small>
+        </div>
+
+        <div id="edits">
+          <button class="edit-btn">
+            <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+          </button>
+          <ul class="edit-options">
+            <li>
+              <button>
+                <i class="fa fa-pencil-square" aria-hidden="true"></i>Edit
+              </button>
+            </li>
+            <li>
+              <button>
+                <i class="fa fa-trash" aria-hidden="true"></i>Delete
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <div class="activity">
+          <h3> Acitiviy Name </h3>
+          <small> Description </small>
+        </div>
+        <div class="activity-info">
+          <div class="progressbar-card">
+            <div class="circle-card">
+              <div class="bar-card"></div>
+              <div class="box-card">
+                <span>80% Results</span>
               </div>
-            </progress>
-            <footer class="goal">Goal</footer>
+            </div>
           </div>
         </div>
       </div>
