@@ -3,7 +3,8 @@ import ReactDom from "react-dom";
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 import { useState } from "react";
 import { ThemeProvider } from "styled-components";
-import "./index.css";
+import "./components/All.css";
+import Modal from "react-modal";
 
 import Home from "./components/Home";
 import UploadsPage from "./components/UploadsPage";
@@ -13,34 +14,170 @@ import MyRoutines from "./components/MyRoutines";
 import Activities from "./components/Activities";
 
 const App = () => {
+  const [newRoutine, setnewRoutine] = useState(false);
+  const [newActivity, setnewActivity] = useState(false);
+  const [uploadOpts, setuploadOpts] = useState(false);
+
   return (
     <div id="app">
       <header>
         <div class="upload">
-          <button class="btn-upload" component={UploadsPage}>
+          <button
+            class="btn-upload"
+            onClick={() => {
+              setuploadOpts(true);
+            }}
+          >
             <i class="fa fa-file-text" aria-hidden="true"></i>
           </button>
         </div>
+
+        <Modal
+          style={{ opacity: 1 }}
+          isOpen={uploadOpts}
+          onRequestClose={() => setuploadOpts(false)}
+        >
+          <div class="uploads">
+            <button
+              class="cancel"
+              onClick={() => {
+                setuploadOpts(false);
+              }}
+            >
+              Close
+            </button>
+
+            <div class="options">
+              <button
+                class="btn2"
+                id="activity"
+                onClick={() => {
+                  setnewActivity(true);
+                  setuploadOpts(false);
+                }}
+              >
+                New Activity
+              </button>
+              <button
+                class="btn2"
+                id="routine"
+                onClick={() => {
+                  setnewRoutine(true);
+                  setuploadOpts(false);
+                }}
+              >
+                New Routine
+              </button>
+            </div>
+          </div>
+        </Modal>
+
+        <Modal
+          style={{ opacity: 1 }}
+          isOpen={newRoutine}
+          onRequestClose={() => setnewRoutine(false)}
+        >
+          <div class="upload-form">
+            <button
+              class="cancel"
+              onClick={() => {
+                setnewRoutine(false);
+              }}
+            >
+              Close
+            </button>
+
+            <form class="new-routine">
+              <h1> New Routine</h1>
+              <div>
+                <input type="text" placeholder="Name" />
+                <input type="text" placeholder="Goal" />
+              </div>
+              <div class="radio-btn">
+                <input type="checkbox" />
+                <label>Public</label>
+
+                <input type="checkbox" />
+                <label>Private </label>
+              </div>
+              <button type="submit" class="btn-sub">
+                Submit
+              </button>
+              <h5
+                id="link-act"
+                onClick={() => {
+                  setnewActivity(true);
+                  setnewRoutine(false);
+                }}
+              >
+                Want to add a new activity? Click Here...
+              </h5>
+            </form>
+          </div>
+        </Modal>
+
+        <Modal
+          style={{ opacity: 1 }}
+          isOpen={newActivity}
+          onRequestClose={() => setnewActivity(false)}
+        >
+          <div class="upload-form">
+            <button
+              class="cancel"
+              onClick={() => {
+                setnewActivity(false);
+              }}
+            >
+              Close
+            </button>
+            <form class="new-activity">
+              <h1> New Activity</h1>
+              <input type="text" placeholder="Name" />
+              <input type="text" placeholder="Description" />
+              <input type="text" placeholder="Duration" />
+              <input type="text" placeholder="Count" />
+              <div class="act-newSub">
+                <button type="submit" class="btn-sub">
+                  Submit
+                </button>
+                <h5
+                  id="link-rou"
+                  onClick={() => {
+                    setnewRoutine(true);
+                    setnewActivity(false);
+                  }}
+                >
+                  Want to add a new routine? Click Here...
+                </h5>
+              </div>
+            </form>
+          </div>
+        </Modal>
+
         <Link to="/home">
           <button class="btn" id="home">
             Home
           </button>
         </Link>
+
         <Link to="/routines">
           <button class="btn" id="routines">
             Routines
           </button>
         </Link>
+
         <Link to="/myroutines">
           <button class="btn" id="myroutines">
             My Routines
           </button>
         </Link>
+
         <Link to="/activities">
           <button class="btn" id="activities">
             Activities
           </button>
         </Link>
+
         <div class="mode">
           <label for="Description">Dark Mode</label>
           <div class="theme-switch">
@@ -51,6 +188,12 @@ const App = () => {
               value="Off"
             ></button>
           </div>
+        </div>
+
+        <div class="logout">
+          <button class="btn" id="signout">
+            <i class="fa fa-sign-out" aria-hidden="true"></i> Logout
+          </button>
         </div>
       </header>
 
@@ -64,18 +207,19 @@ const App = () => {
             <Route exact path="/home">
               <Home />
             </Route>
+            <div class="post">
+              <Route path="/routines">
+                <Routines />
+              </Route>
 
-            <Route path="/routines">
-              <Routines />
-            </Route>
+              <Route path="/myroutines">
+                <MyRoutines />
+              </Route>
 
-            <Route path="/myroutines">
-              <MyRoutines />
-            </Route>
-
-            <Route path="/activities">
-              <Activities />
-            </Route>
+              <Route path="/activities">
+                <Activities />
+              </Route>
+            </div>
           </Switch>
         </div>
       </body>

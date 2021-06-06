@@ -23,27 +23,28 @@ const Activities = () => {
         id="fitness-gif"
         src="https://cdn.dribbble.com/users/1304577/screenshots/4227985/gym-guy-8x6.gif"
       />
-      {activities.map((activity) => {
-        return (
-          <div class="card activities">
-            <div class="activities-List">
-              <h1> {activity.name} </h1>
-              <small>{activity.description} </small>
-            </div>
-            <div class="activity-info">
-              <div class="progressbar-act">
-                <div class="circle-act">
-                  <div class="bar-act"></div>
-                  <div class="box-act">
-                    <span>75% Results</span>
+      {activities && activities.length > 0
+        ? activities.map((activity) => {
+            return (
+              <div class="card activities">
+                <div class="activities-List">
+                  <h1> {activity.name} </h1>
+                  <small> {activity.description} </small>
+                </div>
+                <div class="activity-info">
+                  <div class="progressbar-act">
+                    <div class="circle-act">
+                      <div class="bar-act"></div>
+                      <div class="box-act">
+                        <span>75% Results</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        );
-      })}
-      ;
+            );
+          })
+        : null}
     </>
   );
 };

@@ -25,32 +25,34 @@ const Routines = () => {
         src="https://cdn.domestika.org/c_limit,dpr_auto,f_auto,q_auto,w_820/v1586410730/content-items/004/129/014/Male-Jabber-Jab-Gym-original.gif?1586410730"
       />
 
-      {routines.map((routine) => {
-        return (
-          <div class="card routines">
-            <div class="author">
-              <h1> {routine.creatorName} </h1>
-              <h3> {routine.name} </h3>
-              <small>{routine.goal} </small>
-            </div>
+      {routines && routines.length > 0
+        ? routines.map((routine) => {
+            return (
+              <div class="card routines">
+                <div class="author">
+                  <h1> {routine.creatorName} </h1>
+                  <h3> {routine.name} </h3>
+                  <small>{routine.goal} </small>
+                </div>
 
-            <div class="activity">
-              <h3> {routine.activity.name} </h3>
-              <small> {routine.activity.description} </small>
-            </div>
-            <div class="activity-info">
-              <div class="progressbar-card">
-                <div class="circle-card">
-                  <div class="bar-card"></div>
-                  <div class="box-card">
-                    <span>80% Results</span>
+                <div class="activity">
+                  <h3> {routine.activities.name} </h3>
+                  <small> {routine.activities.description} </small>
+                </div>
+                <div class="activity-info">
+                  <div class="progressbar-card">
+                    <div class="circle-card">
+                      <div class="bar-card"></div>
+                      <div class="box-card">
+                        <span>80% Results</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        );
-      })}
+            );
+          })
+        : null}
     </>
   );
 };

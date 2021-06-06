@@ -110,12 +110,6 @@ const LoginReg = () => {
           >
             Register
           </button>
-
-          <div class="logout">
-            <button class="btn" id="signout">
-              <i class="fa fa-sign-out" aria-hidden="true"></i> Logout
-            </button>
-          </div>
         </div>
       ) : null}
 
