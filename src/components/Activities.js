@@ -36,7 +36,7 @@ const Activities = () => {
                     <div class="circle-act">
                       <div class="bar-act"></div>
                       <div class="box-act">
-                        <span>75% Results</span>
+                        <span>60% Results</span>
                       </div>
                     </div>
                   </div>

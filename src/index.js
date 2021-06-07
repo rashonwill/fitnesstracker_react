@@ -1,13 +1,11 @@
 import React from "react";
 import ReactDom from "react-dom";
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
-import { useState } from "react";
-import { ThemeProvider } from "styled-components";
+import { useState, useEffect } from "react";
 import "./components/All.css";
 import Modal from "react-modal";
 
 import Home from "./components/Home";
-import UploadsPage from "./components/UploadsPage";
 import LoginReg from "./components/LoginReg";
 import Routines from "./components/Routines";
 import MyRoutines from "./components/MyRoutines";
@@ -17,9 +15,20 @@ const App = () => {
   const [newRoutine, setnewRoutine] = useState(false);
   const [newActivity, setnewActivity] = useState(false);
   const [uploadOpts, setuploadOpts] = useState(false);
+  const [authenticated, setAuthenticated] = useState(false);
+
+  // useEffect(() => {
+  //   if (JSON.parse(localStorage.getItem("authToken"))) {
+  //     setAuthenticated(true);
+  //   } else {
+  //     setAuthenticated(false);
+  //   }
+  // });
 
   return (
     <div id="app">
+      {/* {authenticated && (
+        <> */}
       <header>
         <div class="upload">
           <button
@@ -178,29 +187,19 @@ const App = () => {
           </button>
         </Link>
 
-        <div class="mode">
-          <label for="Description">Dark Mode</label>
-          <div class="theme-switch">
-            <button
-              onClick="darkMode();"
-              class="switch"
-              id="active"
-              value="Off"
-            ></button>
-          </div>
-        </div>
-
         <div class="logout">
           <button class="btn" id="signout">
             <i class="fa fa-sign-out" aria-hidden="true"></i> Logout
           </button>
         </div>
       </header>
+      {/* </>
+      )} */}
 
       <body>
         <div class="feed">
           <Switch>
-            <Route exact path="/" component={LoginReg}>
+            <Route exact path="/">
               <LoginReg />
             </Route>
 

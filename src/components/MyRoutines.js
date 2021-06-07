@@ -3,7 +3,8 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 import "./All.css";
-const usernameFetch = (myToken) => {
+const usernameFetch = () => {
+  const myToken = JSON.parse(localStorage.getItem("authToken"));
   try {
     return axios
       .get(`${process.env.REACT_APP_FITNESS_TRACKR_API_URL}users/me`, {
