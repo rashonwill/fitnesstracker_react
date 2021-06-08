@@ -3,8 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 import "./All.css";
-const usernameFetch = () => {
-  const myToken = JSON.parse(localStorage.getItem("authToken"));
+const usernameFetch = (myToken) => {
   try {
     return axios
       .get(`${process.env.REACT_APP_FITNESS_TRACKR_API_URL}users/me`, {
@@ -42,13 +41,12 @@ const myRoutinesFetch = (username, myToken) => {
 };
 
 const MyRoutines = () => {
-  let loggedInUser;
   const [routines, setRoutines] = useState([]);
-
   useEffect(async () => {
-    const auth = JSON.parse(localStorage.getItem("authToken"));
-    if (auth) {
-      loggedInUser = await usernameFetch(myToken);
+    const myToken = JSON.parse(localStorage.getItem("authToken"));
+    console.log(myToken);
+    if (myToken) {
+      const loggedInUser = await usernameFetch(myToken);
       const routines = await myRoutinesFetch(loggedInUser, myToken);
       setRoutines(routines);
     }

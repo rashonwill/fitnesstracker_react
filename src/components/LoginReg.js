@@ -76,7 +76,7 @@ const LoginReg = () => {
 
   return (
     <>
-      <h1> Fitness Tracker </h1>
+      <h1 id="fitnesstrk"> Fitness Tracker </h1>
 
       <img
         id="fitness"

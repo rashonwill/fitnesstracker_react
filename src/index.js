@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDom from "react-dom";
-import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Link, Switch, Redirect } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./components/All.css";
 import Modal from "react-modal";
@@ -16,14 +16,15 @@ const App = () => {
   const [newActivity, setnewActivity] = useState(false);
   const [uploadOpts, setuploadOpts] = useState(false);
   const [authenticated, setAuthenticated] = useState(false);
+  const [unauthenticated, setunAuthenticated] = useState(false);
 
   // useEffect(() => {
-  //   if (JSON.parse(localStorage.getItem("authToken"))) {
+  //   if (!JSON.parse(localStorage.getItem("authToken"))) {
   //     setAuthenticated(true);
   //   } else {
   //     setAuthenticated(false);
   //   }
-  // });
+  // }, []);
 
   return (
     <div id="app">
@@ -188,7 +189,14 @@ const App = () => {
         </Link>
 
         <div class="logout">
-          <button class="btn" id="signout">
+          <button
+            class="btn"
+            id="signout"
+            onClick={() => {
+              setunAuthenticated(true);
+              <Redirect to="/" />;
+            }}
+          >
             <i class="fa fa-sign-out" aria-hidden="true"></i> Logout
           </button>
         </div>
