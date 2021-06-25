@@ -4,7 +4,7 @@ import Modal from "react-modal";
 
 import "./All.css";
 
-const UploadsPage = ({ routines, setRoutines }) => {
+const UploadsPage = () => {
   const [uploads, setopenUploads] = useState(false);
   const [message, setMessage] = useState();
   const [name, setRoutineName] = useState();
@@ -14,9 +14,10 @@ const UploadsPage = ({ routines, setRoutines }) => {
   // const [Description, setActivityDescription] = useState();
   // const [duration, setActivityDuration] = useState();
   // const [count, setActivityCount] = useState();
+  const myToken = localStorage.getItem("authToken");
+  console.log(myToken);
 
   const createRoutine = async () => {
-    const myToken = localStorage.getItem("authToken");
     try {
       const response = await fetch(
         `${process.env.REACT_APP_FITNESS_TRACKER_API_URL}/routines`,
@@ -34,6 +35,7 @@ const UploadsPage = ({ routines, setRoutines }) => {
         }
       );
       const data = await response.json();
+      console.log(data);
       setMessage("Your new routine has been added.");
       // window.location.reload();
       return data;

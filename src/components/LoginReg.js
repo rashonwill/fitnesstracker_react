@@ -5,9 +5,9 @@ import Modal from "react-modal";
 import "./LoginReg.css";
 
 const LoginReg = () => {
-  const [username, setUsername] = useState();
-  const [password, setPassword] = useState();
-  const [message, setMessage] = useState();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
   const [openLogin, setopenLogin] = useState(false);
   const [openRegister, setopenRegister] = useState(false);
   const [accountOptions, setaccountOptions] = useState(true);
@@ -50,7 +50,7 @@ const LoginReg = () => {
         }
       );
       const data = await response.json();
-      localStorage.setItem("authToken", data.token);
+      localStorage.setItem("authToken", JSON.stringify(data.token));
       setMessage("Welcome, you are logged in!");
       window.location.href = `${window.location.orgin}/home`;
       window.location.href = "/home";

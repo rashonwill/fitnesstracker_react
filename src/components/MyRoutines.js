@@ -6,7 +6,7 @@ import "./All.css";
 const usernameFetch = (myToken) => {
   try {
     return axios
-      .get(`${process.env.REACT_APP_FITNESS_TRACKR_API_URL}users/me`, {
+      .get(`${process.env.REACT_APP_FITNESS_TRACKER_API_URL}/users/me`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${myToken}`,
@@ -24,7 +24,7 @@ const myRoutinesFetch = (username, myToken) => {
   try {
     return axios
       .get(
-        `${process.env.REACT_APP_FITNESS_TRACKR_API_URL}users/${username}/routines`,
+        `${process.env.REACT_APP_FITNESS_TRACKER_API_URL}/users/${username}/routines`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -44,7 +44,7 @@ const MyRoutines = () => {
   const [routines, setRoutines] = useState([]);
   useEffect(async () => {
     const myToken = JSON.parse(localStorage.getItem("authToken"));
-    console.log(myToken);
+
     if (myToken) {
       const loggedInUser = await usernameFetch(myToken);
       const routines = await myRoutinesFetch(loggedInUser, myToken);
@@ -63,12 +63,6 @@ const MyRoutines = () => {
         ? routines.map((routine) => {
             return (
               <div class="card routines">
-                <div class="author">
-                  <h1> {routine.creatorName} </h1>
-                  <h3> {routine.name} </h3>
-                  <small> {routine.goal} </small>
-                </div>
-
                 <div id="edits">
                   <button class="edit-btn">
                     <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
@@ -86,6 +80,11 @@ const MyRoutines = () => {
                       </button>
                     </li>
                   </ul>
+                </div>
+                <div class="author">
+                  <h1> {routine.creatorName} </h1>
+                  <h3> {routine.name} </h3>
+                  <small> {routine.goal} </small>
                 </div>
 
                 <div class="activity">

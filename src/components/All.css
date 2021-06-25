@@ -5,12 +5,6 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Padauk:wght@700&family=Teko:wght@500&display=swap");
 
-/* * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-} */
-
 header {
   position: sticky;
   top: 0;
@@ -277,7 +271,7 @@ span {
 }
 
 .author small {
-  margin-top: 50px;
+  margin-top: 20px;
   font-size: 18px;
   float: left;
 }
@@ -329,14 +323,15 @@ span {
 }
 
 .edit-btn {
-  position: absolute;
+  position: relative;
   cursor: pointer;
   width: 40px;
-  top: 60px;
+  margin-top: -120px;
+  margin-left: 350px;
   font-size: 20px;
   border: none;
   background: transparent;
-  color: red;
+  color: white;
 }
 
 .edit-btn:hover {
@@ -418,8 +413,6 @@ span {
 
 /* Activituiy Cards Progress */
 
-/* Activituiy Cards Progress */
-
 .activities-List {
   margin-top: 5px;
   float: left;
@@ -458,7 +451,6 @@ span {
   display: block;
   background: transparent;
   border: 15px solid #222;
-  /* border: none; */
   opacity: 0.7;
   width: 200px;
   height: 200px;
@@ -550,6 +542,7 @@ span {
   text-decoration: underline;
   font-size: 24px;
   background: -webkit-linear-gradient(darkblue, #7cb9e8);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: "Teko";
@@ -732,6 +725,7 @@ form input[type="text"] {
   text-decoration: underline;
   font-size: 24px;
   background: -webkit-linear-gradient(darkblue, #7cb9e8);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: "Teko";

@@ -18,191 +18,191 @@ const App = () => {
   const [authenticated, setAuthenticated] = useState(false);
   const [unauthenticated, setunAuthenticated] = useState(false);
 
-  // useEffect(() => {
-  //   if (!JSON.parse(localStorage.getItem("authToken"))) {
-  //     setAuthenticated(true);
-  //   } else {
-  //     setAuthenticated(false);
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (JSON.parse(localStorage.getItem("authToken"))) {
+      setAuthenticated(true);
+    } else {
+      setAuthenticated(false);
+    }
+  }, []);
 
   return (
     <div id="app">
-      {/* {authenticated && (
-        <> */}
-      <header>
-        <div class="upload">
-          <button
-            class="btn-upload"
-            onClick={() => {
-              setuploadOpts(true);
-            }}
-          >
-            <i class="fa fa-file-text" aria-hidden="true"></i>
-          </button>
-        </div>
-
-        <Modal
-          style={{ opacity: 1 }}
-          isOpen={uploadOpts}
-          onRequestClose={() => setuploadOpts(false)}
-        >
-          <div class="uploads">
-            <button
-              class="cancel"
-              onClick={() => {
-                setuploadOpts(false);
-              }}
-            >
-              Close
-            </button>
-
-            <div class="options">
+      {authenticated && (
+        <>
+          <header>
+            <div class="upload">
               <button
-                class="btn2"
-                id="activity"
+                class="btn-upload"
                 onClick={() => {
-                  setnewActivity(true);
-                  setuploadOpts(false);
+                  setuploadOpts(true);
                 }}
               >
-                New Activity
-              </button>
-              <button
-                class="btn2"
-                id="routine"
-                onClick={() => {
-                  setnewRoutine(true);
-                  setuploadOpts(false);
-                }}
-              >
-                New Routine
+                <i class="fa fa-file-text" aria-hidden="true"></i>
               </button>
             </div>
-          </div>
-        </Modal>
 
-        <Modal
-          style={{ opacity: 1 }}
-          isOpen={newRoutine}
-          onRequestClose={() => setnewRoutine(false)}
-        >
-          <div class="upload-form">
-            <button
-              class="cancel"
-              onClick={() => {
-                setnewRoutine(false);
-              }}
+            <Modal
+              style={{ opacity: 1 }}
+              isOpen={uploadOpts}
+              onRequestClose={() => setuploadOpts(false)}
             >
-              Close
-            </button>
-
-            <form class="new-routine">
-              <h1> New Routine</h1>
-              <div>
-                <input type="text" placeholder="Name" />
-                <input type="text" placeholder="Goal" />
-              </div>
-              <div class="radio-btn">
-                <input type="checkbox" />
-                <label>Public</label>
-
-                <input type="checkbox" />
-                <label>Private </label>
-              </div>
-              <button type="submit" class="btn-sub">
-                Submit
-              </button>
-              <h5
-                id="link-act"
-                onClick={() => {
-                  setnewActivity(true);
-                  setnewRoutine(false);
-                }}
-              >
-                Want to add a new activity? Click Here...
-              </h5>
-            </form>
-          </div>
-        </Modal>
-
-        <Modal
-          style={{ opacity: 1 }}
-          isOpen={newActivity}
-          onRequestClose={() => setnewActivity(false)}
-        >
-          <div class="upload-form">
-            <button
-              class="cancel"
-              onClick={() => {
-                setnewActivity(false);
-              }}
-            >
-              Close
-            </button>
-            <form class="new-activity">
-              <h1> New Activity</h1>
-              <input type="text" placeholder="Name" />
-              <input type="text" placeholder="Description" />
-              <input type="text" placeholder="Duration" />
-              <input type="text" placeholder="Count" />
-              <div class="act-newSub">
-                <button type="submit" class="btn-sub">
-                  Submit
-                </button>
-                <h5
-                  id="link-rou"
+              <div class="uploads">
+                <button
+                  class="cancel"
                   onClick={() => {
-                    setnewRoutine(true);
+                    setuploadOpts(false);
+                  }}
+                >
+                  Close
+                </button>
+
+                <div class="options">
+                  <button
+                    class="btn2"
+                    id="activity"
+                    onClick={() => {
+                      setnewActivity(true);
+                      setuploadOpts(false);
+                    }}
+                  >
+                    New Activity
+                  </button>
+                  <button
+                    class="btn2"
+                    id="routine"
+                    onClick={() => {
+                      setnewRoutine(true);
+                      setuploadOpts(false);
+                    }}
+                  >
+                    New Routine
+                  </button>
+                </div>
+              </div>
+            </Modal>
+
+            <Modal
+              style={{ opacity: 1 }}
+              isOpen={newRoutine}
+              onRequestClose={() => setnewRoutine(false)}
+            >
+              <div class="upload-form">
+                <button
+                  class="cancel"
+                  onClick={() => {
+                    setnewRoutine(false);
+                  }}
+                >
+                  Close
+                </button>
+
+                <form class="new-routine">
+                  <h1> New Routine</h1>
+                  <div>
+                    <input type="text" placeholder="Name" />
+                    <input type="text" placeholder="Goal" />
+                  </div>
+                  <div class="radio-btn">
+                    <input type="checkbox" />
+                    <label>Public</label>
+
+                    <input type="checkbox" />
+                    <label>Private </label>
+                  </div>
+                  <button type="submit" class="btn-sub">
+                    Submit
+                  </button>
+                  <h5
+                    id="link-act"
+                    onClick={() => {
+                      setnewActivity(true);
+                      setnewRoutine(false);
+                    }}
+                  >
+                    Want to add a new activity? Click Here...
+                  </h5>
+                </form>
+              </div>
+            </Modal>
+
+            <Modal
+              style={{ opacity: 1 }}
+              isOpen={newActivity}
+              onRequestClose={() => setnewActivity(false)}
+            >
+              <div class="upload-form">
+                <button
+                  class="cancel"
+                  onClick={() => {
                     setnewActivity(false);
                   }}
                 >
-                  Want to add a new routine? Click Here...
-                </h5>
+                  Close
+                </button>
+                <form class="new-activity">
+                  <h1> New Activity</h1>
+                  <input type="text" placeholder="Name" />
+                  <input type="text" placeholder="Description" />
+                  <input type="text" placeholder="Duration" />
+                  <input type="text" placeholder="Count" />
+                  <div class="act-newSub">
+                    <button type="submit" class="btn-sub">
+                      Submit
+                    </button>
+                    <h5
+                      id="link-rou"
+                      onClick={() => {
+                        setnewRoutine(true);
+                        setnewActivity(false);
+                      }}
+                    >
+                      Want to add a new routine? Click Here...
+                    </h5>
+                  </div>
+                </form>
               </div>
-            </form>
-          </div>
-        </Modal>
+            </Modal>
 
-        <Link to="/home">
-          <button class="btn" id="home">
-            Home
-          </button>
-        </Link>
+            <Link to="/home">
+              <button class="btn" id="home">
+                Home
+              </button>
+            </Link>
 
-        <Link to="/routines">
-          <button class="btn" id="routines">
-            Routines
-          </button>
-        </Link>
+            <Link to="/routines">
+              <button class="btn" id="routines">
+                Routines
+              </button>
+            </Link>
 
-        <Link to="/myroutines">
-          <button class="btn" id="myroutines">
-            My Routines
-          </button>
-        </Link>
+            <Link to="/myroutines">
+              <button class="btn" id="myroutines">
+                My Routines
+              </button>
+            </Link>
 
-        <Link to="/activities">
-          <button class="btn" id="activities">
-            Activities
-          </button>
-        </Link>
+            <Link to="/activities">
+              <button class="btn" id="activities">
+                Activities
+              </button>
+            </Link>
 
-        <div class="logout">
-          <button
-            class="btn"
-            id="signout"
-            onClick={() => {
-              setunAuthenticated(true);
-              <Redirect to="/" />;
-            }}
-          >
-            <i class="fa fa-sign-out" aria-hidden="true"></i> Logout
-          </button>
-        </div>
-      </header>
-      {/* </>
-      )} */}
+            <div class="logout">
+              <button
+                class="btn"
+                id="signout"
+                onClick={() => {
+                  setunAuthenticated(true);
+                  <Redirect to="/" />;
+                }}
+              >
+                <i class="fa fa-sign-out" aria-hidden="true"></i> Logout
+              </button>
+            </div>
+          </header>
+        </>
+      )}
 
       <body>
         <div class="feed">
