@@ -19,12 +19,18 @@ const App = () => {
   const [unauthenticated, setunAuthenticated] = useState(false);
 
   useEffect(() => {
-    if (JSON.parse(localStorage.getItem("authToken"))) {
+    if (JSON.parse(localStorage.getItem("fitToken"))) {
       setAuthenticated(true);
     } else {
       setAuthenticated(false);
     }
   }, []);
+
+  const logout = (event) => {
+    event.preventDefault();
+    localStorage.removeItem("fitToken");
+    window.location.href = "/";
+  };
 
   return (
     <div id="app">
@@ -189,15 +195,8 @@ const App = () => {
             </Link>
 
             <div class="logout">
-              <button
-                class="btn"
-                id="signout"
-                onClick={() => {
-                  setunAuthenticated(true);
-                  <Redirect to="/" />;
-                }}
-              >
-                <i class="fa fa-sign-out" aria-hidden="true"></i> Logout
+              <button class="btn" id="signout" onClick={logout}>
+                <i class="fa fa-sign-out" aria-hidden="true"></i>Logout
               </button>
             </div>
           </header>

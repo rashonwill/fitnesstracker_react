@@ -14,11 +14,12 @@ const UploadsPage = () => {
   // const [Description, setActivityDescription] = useState();
   // const [duration, setActivityDuration] = useState();
   // const [count, setActivityCount] = useState();
-  const myToken = localStorage.getItem("authToken");
+  const myToken = localStorage.getItem("fitToken");
   console.log(myToken);
 
   const createRoutine = async () => {
     try {
+      debugger;
       const response = await fetch(
         `${process.env.REACT_APP_FITNESS_TRACKER_API_URL}/routines`,
         {

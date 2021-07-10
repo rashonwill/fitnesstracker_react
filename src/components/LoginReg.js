@@ -25,7 +25,7 @@ const LoginReg = () => {
         }
       );
       const data = await response.json();
-      localStorage.setItem("authToken", data.token);
+      localStorage.setItem("fitToken", data.token);
       setMessage("Thanks for registering, return to login screen to login.");
     } catch (error) {
       setMessage("Oops, could not register user, please try again");
@@ -50,7 +50,7 @@ const LoginReg = () => {
         }
       );
       const data = await response.json();
-      localStorage.setItem("authToken", JSON.stringify(data.token));
+      localStorage.setItem("fitToken", JSON.stringify(data.token));
       setMessage("Welcome, you are logged in!");
       window.location.href = `${window.location.orgin}/home`;
       window.location.href = "/home";

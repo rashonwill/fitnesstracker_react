@@ -43,7 +43,7 @@ const myRoutinesFetch = (username, myToken) => {
 const MyRoutines = () => {
   const [routines, setRoutines] = useState([]);
   useEffect(async () => {
-    const myToken = JSON.parse(localStorage.getItem("authToken"));
+    const myToken = JSON.parse(localStorage.getItem("fitToken"));
 
     if (myToken) {
       const loggedInUser = await usernameFetch(myToken);
