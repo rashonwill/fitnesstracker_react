@@ -5,7 +5,10 @@ import Modal from "react-modal";
 import "./All.css";
 
 const UploadsPage = () => {
+  const [uploadOptions, setuploadOptions] = useState(true);
   const [uploads, setopenUploads] = useState(false);
+  const [newRou, setNewRoutineOpen] = useState(false);
+  const [newAct, setNewActivityOpen] = useState(false);
   const [message, setMessage] = useState();
   const [name, setRoutineName] = useState();
   const [goal, setRoutineGoal] = useState();
@@ -55,17 +58,31 @@ const UploadsPage = () => {
   };
   return (
     <>
+    {uploadOptions ? (
         <div class="uploads">
           <button class="cancel">&#10060</button>
 
           <div class="options">
-            <button class="btn2" id="activity">
+            <button class="btn2" id="activity" onClick={() => {
+              setNewActivityOpen(true);
+              setNewRoutineOpen(false);
+            }}>
               New Activity
             </button>
-            <button class="btn2" id="routine">
+            <button class="btn2" id="routine" onClick={() => {
+              setNewActivityOpen(false);
+              setNewRoutineOpen(true);
+            }}>
               New Routine
             </button>
           </div>
+    ) : null}
+    
+          <Modal
+        style={{ opacity: 1 }}
+        isOpen={newRou}
+        onRequestClose={() => setNewRoutineOpen(false)}
+      >
 
           <div class="upload-form">
             <form class="new-routine" onSubmit={onRoutineCreation}>
@@ -108,6 +125,13 @@ const UploadsPage = () => {
               </button>
               <h5 id="link-act">Want to add a new activity? Click Here...</h5>
             </form>
+              </Modal>
+              
+                    <Modal
+        style={{ opacity: 1 }}
+        isOpen={newAct}
+        onRequestClose={() => setNewActivityOpen(false)}
+      >
 
             <form class="new-activity" onSubmit={activityCreation}>
               <h1> New Activity</h1>
@@ -139,6 +163,7 @@ const UploadsPage = () => {
             </form>
           </div>
         </div>
+              </Modal>
  
     </>
   );
