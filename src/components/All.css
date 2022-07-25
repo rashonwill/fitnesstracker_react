@@ -211,7 +211,7 @@ span {
 }
 
 #fitness-gif {
-/*   position: absolute; */
+  position: sticky;
   width: 200px;
   height: 200px;
   bottom: 0;
