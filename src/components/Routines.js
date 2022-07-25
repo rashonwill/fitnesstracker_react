@@ -13,7 +13,6 @@ const Routines = () => {
       .then(({ data }) => {
         if (data.length) {
           setRoutines(data);
-          console.log(data);
         }
       });
   }, []);
