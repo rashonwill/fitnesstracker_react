@@ -10,6 +10,7 @@ import LoginReg from "./components/LoginReg";
 import Routines from "./components/Routines";
 import MyRoutines from "./components/MyRoutines";
 import Activities from "./components/Activities";
+import Upload from "./components/UploadsPage";
 
 const App = () => {
   const [newRoutine, setnewRoutine] = useState(false);
@@ -193,6 +194,12 @@ const App = () => {
                 Activities
               </button>
             </Link>
+                      
+                      <Link to="/upload">
+              <button class="btn" id="upload">
+                New Upload
+              </button>
+            </Link>
 
             <div class="logout">
               <button class="btn" id="signout" onClick={logout}>
@@ -224,6 +231,10 @@ const App = () => {
 
               <Route path="/activities">
                 <Activities />
+              </Route>
+
+              <Route path="/upload">
+                <UploadsPage />
               </Route>
             </div>
           </Switch>
