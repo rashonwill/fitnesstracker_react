@@ -11,7 +11,7 @@ const Home = () => {
         <h1> Our Combinded Users Success Percentage </h1>
       </div>
       <img
-        id="fitness-gif"
+        id="fitness-gif2"
         src="https://cdn.dribbble.com/users/159027/screenshots/3866020/run-dribbble_3.gif"
       />
 
