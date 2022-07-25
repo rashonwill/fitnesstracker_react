@@ -10,7 +10,6 @@ const UploadsPage = () => {
   const [name, setRoutineName] = useState();
   const [goal, setRoutineGoal] = useState();
   const [isPublic, setRoutineStatus] = useState();
-  const [name, setActivityName] = useState();
   const [Description, setActivityDescription] = useState();
   const [duration, setActivityDuration] = useState();
   const [count, setActivityCount] = useState();
