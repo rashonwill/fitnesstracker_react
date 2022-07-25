@@ -173,6 +173,7 @@ img {
   margin: 20px;
   justify-content: center;
   align-items: center;
+  outline: none;
 }
 
 .login-register form input {
