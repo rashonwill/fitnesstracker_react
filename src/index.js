@@ -10,7 +10,7 @@ import LoginReg from "./components/LoginReg";
 import Routines from "./components/Routines";
 import MyRoutines from "./components/MyRoutines";
 import Activities from "./components/Activities";
-import Upload from "./components/UploadsPage";
+import UploadsPage from "./components/UploadsPage";
 
 const App = () => {
   const [newRoutine, setnewRoutine] = useState(false);
