@@ -195,11 +195,6 @@ const App = () => {
               </button>
             </Link>
                       
-                      <Link to="/upload">
-              <button class="btn" id="upload">
-                New Upload
-              </button>
-            </Link>
 
             <div class="logout">
               <button class="btn" id="signout" onClick={logout}>
@@ -233,9 +228,7 @@ const App = () => {
                 <Activities />
               </Route>
 
-              <Route path="/upload">
-                <UploadsPage />
-              </Route>
+
             </div>
           </Switch>
         </div>
