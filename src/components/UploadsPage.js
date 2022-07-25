@@ -39,7 +39,6 @@ const UploadsPage = () => {
       const data = await response.json();
       console.log(data);
       setMessage("Your new routine has been added.");
-      // window.location.reload();
       return data;
     } catch (error) {
       setMessage("Oops, could not create routine, try again.");
@@ -51,8 +50,7 @@ const UploadsPage = () => {
     }
   };
 
-  const onRoutineCreation = (event) => {
-    event.preventDefault();
+  const onRoutineCreation = () => {
     createRoutine();
   };
   return (
