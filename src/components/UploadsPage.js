@@ -10,7 +10,7 @@ const UploadsPage = () => {
   const [name, setRoutineName] = useState();
   const [goal, setRoutineGoal] = useState();
   const [isPublic, setRoutineStatus] = useState();
-  const [Description, setActivityDescription] = useState();
+  const [description, setActivityDescription] = useState();
   const [duration, setActivityDuration] = useState();
   const [count, setActivityCount] = useState();
   const myToken = localStorage.getItem("fitToken");
