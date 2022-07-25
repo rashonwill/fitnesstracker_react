@@ -561,7 +561,7 @@ span {
 
 form input[type="text"] {
   position: relative;
-  top: 50%;
+/*   top: 50%; */
   left: 10%;
   margin-bottom: 25px;
   color: #f0ffff;
@@ -690,14 +690,15 @@ form input[type="text"] {
 }
 
 .new-activity {
-  margin-top: 120px;
+/*   margin-top: 120px; */
   display: grid;
   grid-template-columns: auto auto;
+  display: block;
 }
 
 .act-newSub {
   display: block;
-  margin-right: -350px;
+/*   margin-right: -350px; */
   margin-top: 25px;
 }
 
