@@ -211,6 +211,17 @@ span {
 }
 
 #fitness-gif {
+/*   position: absolute; */
+  width: 200px;
+  height: 200px;
+  bottom: 0;
+  left: 0;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+}
+
+#fitness-gif2 {
   position: absolute;
   width: 200px;
   height: 200px;
