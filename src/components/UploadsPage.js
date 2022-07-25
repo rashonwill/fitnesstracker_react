@@ -16,7 +16,8 @@ const UploadsPage = () => {
   const [count, setActivityCount] = useState();
   const myToken = localStorage.getItem("fitToken");
 
-  const createRoutine = async () => {
+  const createRoutine = async (event) => {
+    event.preventDefault();
     let newRoutine = {
             name: name,
             goal: goal,
