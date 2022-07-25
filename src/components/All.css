@@ -16,6 +16,13 @@ header {
   z-index: 10;
 }
 
+.nav{
+margin: .5rem auto;
+align-items: center;
+justify-content: center;  
+  
+}
+
 .profile-opts {
   display: flex;
   position: absolute;
