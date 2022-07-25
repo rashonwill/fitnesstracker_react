@@ -69,12 +69,14 @@ const UploadsPage = () => {
             }}>
               New Activity
             </button>
+
             <button class="btn2" id="routine" onClick={() => {
               setNewActivityOpen(false);
               setNewRoutineOpen(true);
             }}>
               New Routine
             </button>
+
           </div>
     ) : null}
     
@@ -125,6 +127,7 @@ const UploadsPage = () => {
               </button>
               <h5 id="link-act">Want to add a new activity? Click Here...</h5>
             </form>
+              </div>
               </Modal>
               
                     <Modal
@@ -132,7 +135,7 @@ const UploadsPage = () => {
         isOpen={newAct}
         onRequestClose={() => setNewActivityOpen(false)}
       >
-
+              <div class="upload-form">
             <form class="new-activity" onSubmit={activityCreation}>
               <h1> New Activity</h1>
               <input
@@ -161,7 +164,6 @@ const UploadsPage = () => {
               </button>
               <h5 id="link-rou">Want to add a new routine? Click Here...</h5>
             </form>
-          </div>
         </div>
               </Modal>
  
