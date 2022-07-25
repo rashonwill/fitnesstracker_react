@@ -170,6 +170,7 @@ const App = () => {
                 </form>
               </div>
             </Modal>
+                      <div class="nav">
 
             <Link to="/home">
               <button class="btn" id="home">
@@ -194,7 +195,7 @@ const App = () => {
                 Activities
               </button>
             </Link>
-                      
+              </div>        
 
             <div class="logout">
               <button class="btn" id="signout" onClick={logout}>
