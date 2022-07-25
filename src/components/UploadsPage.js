@@ -10,16 +10,21 @@ const UploadsPage = () => {
   const [name, setRoutineName] = useState();
   const [goal, setRoutineGoal] = useState();
   const [isPublic, setRoutineStatus] = useState();
-  // const [name, setActivityName] = useState();
-  // const [Description, setActivityDescription] = useState();
-  // const [duration, setActivityDuration] = useState();
-  // const [count, setActivityCount] = useState();
+  const [name, setActivityName] = useState();
+  const [Description, setActivityDescription] = useState();
+  const [duration, setActivityDuration] = useState();
+  const [count, setActivityCount] = useState();
   const myToken = localStorage.getItem("fitToken");
-  console.log(myToken);
 
   const createRoutine = async () => {
+    let newRoutine = {
+            name: name,
+            goal: goal,
+            isPublic: true,
+    }
+    
+    console.log(newRoutine)
     try {
-      debugger;
       const response = await fetch(
         `${process.env.REACT_APP_FITNESS_TRACKER_API_URL}/routines`,
         {
@@ -28,11 +33,7 @@ const UploadsPage = () => {
             "Content-Type": "application/json",
             Authorization: `Bearer ${myToken}`,
           },
-          body: JSON.stringify({
-            name,
-            goal,
-            isPublic: true,
-          }),
+          body: JSON.stringify(newRoutine),
         }
       );
       const data = await response.json();
