@@ -52,7 +52,6 @@ const LoginReg = () => {
       const data = await response.json();
       localStorage.setItem("fitToken", JSON.stringify(data.token));
       setMessage("Welcome, you are logged in!");
-      window.location.href = `${window.location.orgin}/home`;
       window.location.href = "/home";
     } catch (error) {
       console.log(error);
