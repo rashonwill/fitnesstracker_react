@@ -166,6 +166,7 @@ const UploadsPage = () => {
             </form>
         </div>
               </Modal>
+              </div>
  
     </>
   );
