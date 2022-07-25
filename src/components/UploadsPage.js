@@ -57,11 +57,6 @@ const UploadsPage = () => {
   };
   return (
     <>
-      <Modal
-        style={{ opacity: 1 }}
-        isOpen={uploads}
-        onRequestClose={() => setopenUploads(false)}
-      >
         <div class="uploads">
           <button class="cancel">&#10060</button>
 
@@ -146,7 +141,7 @@ const UploadsPage = () => {
             </form>
           </div>
         </div>
-      </Modal>
+ 
     </>
   );
 };
