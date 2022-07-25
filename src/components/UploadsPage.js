@@ -78,6 +78,7 @@ const UploadsPage = () => {
             </button>
 
           </div>
+</div>
     ) : null}
     
           <Modal
@@ -166,7 +167,7 @@ const UploadsPage = () => {
             </form>
         </div>
               </Modal>
-              </div>
+       
  
     </>
   );
