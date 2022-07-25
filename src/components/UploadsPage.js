@@ -5,7 +5,7 @@ import Modal from "react-modal";
 import "./All.css";
 
 const UploadsPage = () => {
-  const [uploadOptions, setuploadOptions] = useState(true);
+  const [uploadOptions, setuploadOptions] = useState(false);
   const [uploads, setopenUploads] = useState(false);
   const [newRou, setNewRoutineOpen] = useState(false);
   const [newAct, setNewActivityOpen] = useState(false);
@@ -18,8 +18,7 @@ const UploadsPage = () => {
   const [count, setActivityCount] = useState();
   const myToken = localStorage.getItem("fitToken");
 
-  const createRoutine = async (event) => {
-    event.preventDefault();
+  const createRoutine = async () => {
     let newRoutine = {
             name: name,
             goal: goal,
@@ -53,7 +52,8 @@ const UploadsPage = () => {
     }
   };
 
-  const onRoutineCreation = () => {
+  const onRoutineCreation = (event) => {
+     event.preventDefault();
     createRoutine();
   };
   return (
